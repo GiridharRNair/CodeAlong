@@ -8,7 +8,7 @@ Simple single file real-time collaborative code editor. Create a room, share the
 
 ![Architecture](public/architecture.png)
 
-The frontend uses the React framework with Typescript powered by Vite. Real-time collaboration is handled by [Yjs](https://yjs.dev/) with [y-supabase](https://github.com/supabase-labs/y-supabase) as the sync provider, syncing document state through Supabase's realtime infrastructure. Code execution is proxied through a FastAPI backend that calls the [JDoodle](https://www.jdoodle.com/) compiler API. Both the frontend and backend are deployed on Vercel, with the backend running as a serverless function.
+The frontend uses the React framework with Typescript powered by Vite. Real-time collaboration is handled by [Yjs](https://yjs.dev/) with [y-supabase](https://github.com/supabase-community/y-supabase) as the sync provider, syncing document state through Supabase's realtime infrastructure. Code execution is proxied through a FastAPI backend that calls the [JDoodle](https://www.jdoodle.com/) compiler API. Both the frontend and backend are deployed on Vercel, with the backend running as a serverless function.
 
 ## Local Development
 

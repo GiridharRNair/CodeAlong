@@ -58,11 +58,11 @@ npm run format-api     # Format Python
 
 ## License
 
-MIT
+[MIT](LICENSE)
 
 Open to contributions and feature suggestions via issues or pull requests.
 
-### TODO
+## TODO
 
 The toast that appears when the language is changed should include the name of the user who changed the language.
 

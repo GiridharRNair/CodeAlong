@@ -61,3 +61,9 @@ npm run format-api     # Format Python
 MIT
 
 Open to contributions and feature suggestions via issues or pull requests.
+
+### TODO
+
+The toast that appears when the language is changed should include the name of the user who changed the language.
+
+Create a sandboxed environment for code execution instead of relying on a third-party API.

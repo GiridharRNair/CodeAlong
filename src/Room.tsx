@@ -31,6 +31,7 @@ import {
     ChevronRight,
     Terminal,
     LoaderCircle,
+    LogOut,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -203,6 +204,7 @@ function Room() {
                         onClick={leaveRoom}
                         className="gap-2 w-24"
                     >
+                        <LogOut className="h-4 w-4" />
                         Leave
                     </Button>
                 </div>

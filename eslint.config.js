@@ -1,5 +1,4 @@
 import js from "@eslint/js";
-import eslintJs from "@eslint/js";
 import eslintReact from "@eslint-react/eslint-plugin";
 import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
@@ -17,8 +16,6 @@ export default defineConfig([
             tseslint.configs.stylisticTypeChecked,
             reactHooks.configs.flat.recommended,
             reactRefresh.configs.vite,
-            eslintJs.configs.recommended,
-            tseslint.configs.recommended,
             eslintReact.configs["recommended-typescript"],
         ],
         languageOptions: {

@@ -13,6 +13,7 @@
         "@base-ui/react": "^1.6.0",
         "@monaco-editor/react": "^4.7.0",
         "@phosphor-icons/react": "^2.1.10",
+        "@supabase-labs/y-supabase": "^0.1.0",
         "@supabase/ssr": "^0.12.0",
         "@supabase/supabase-js": "^2.110.2",
         "class-variance-authority": "^0.7.1",

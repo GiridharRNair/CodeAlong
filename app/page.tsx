@@ -6,15 +6,15 @@ import { useRouter } from "next/navigation";
 import { v4 as uuidv4, validate as uuidValidate } from "uuid";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@components/ui/button";
 import {
     Field,
     FieldDescription,
     FieldGroup,
     FieldSeparator,
     FieldSet,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+} from "@components/ui/field";
+import { Input } from "@components/ui/input";
 
 export default function Home() {
     const router = useRouter();

@@ -2,7 +2,8 @@ type ExecuteResponse = {
     status: "OK" | "TLE" | "MLE" | "RE" | "CE";
     stdout: string;
     stderr: string;
-    error: string;
+    time: string;
+    memory: string;
 };
 
 export type { ExecuteResponse };

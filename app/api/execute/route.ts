@@ -1,15 +1,11 @@
 import { NextResponse } from "next/server";
+import type { ExecuteRequestBody } from "@models/execute_request_body";
+import type { ExecuteResponse } from "@models/execute_response";
 
 const RUNLET_API_URL = "https://runlet.codealong.live";
 const EXECUTE_TIMEOUT_MS = 30_000;
 
 const SUPPORTED_LANGUAGES = ["python", "javascript", "cpp", "java"];
-
-interface ExecuteRequestBody {
-    code: string;
-    language: string;
-    stdin?: string;
-}
 
 export async function POST(request: Request) {
     let body: ExecuteRequestBody;
@@ -63,7 +59,7 @@ export async function POST(request: Request) {
             );
         }
 
-        const data = (await response.json()) as unknown;
+        const data = (await response.json()) as ExecuteResponse;
         return NextResponse.json(data);
     } catch (err) {
         if (err instanceof Error && err.name === "AbortError") {

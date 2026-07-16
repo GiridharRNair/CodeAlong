@@ -11,7 +11,7 @@ import { validate as uuidValidate } from "uuid";
 import { useState } from "react";
 
 import { RealtimeMonaco } from "@components/realtime-monaco";
-import type { ConnectedUser } from "@hooks/use-connect-on-mount";
+import { useConnectOnMount } from "@hooks/use-connect-on-mount";
 
 import { Button } from "@components/ui/button";
 import {
@@ -51,7 +51,6 @@ import type { ExecuteResponse } from "@models/execute_response";
 const config: Config = {
     dictionaries: [adjectives, animals],
     separator: " ",
-    style: "capital",
 };
 
 const SUPPORTED_LANGUAGES = [
@@ -66,6 +65,7 @@ const STATS_LABELS: Record<string, string> = {
     MLE: "Memory limit exceeded",
     RE: "Runtime error",
     CE: "Compile error",
+    OLE: "Output limit exceeded",
 };
 
 export default function Room() {
@@ -77,8 +77,11 @@ export default function Room() {
     const [isRunning, setIsRunning] = useState(false);
     const [copied, setCopied] = useState(false);
     const [code, setCode] = useState("");
-    const [users, setUsers] = useState<ConnectedUser[]>([]);
-    const [language, setLanguage] = useState("python");
+
+    const { connectOnMount, users, language, setLanguage } = useConnectOnMount({
+        channel: roomId ?? "",
+        name,
+    });
 
     if (!roomId || !uuidValidate(roomId)) {
         redirect("/");
@@ -108,7 +111,7 @@ export default function Room() {
             const data = (await response.json()) as ExecuteResponse;
 
             if (!response.ok) {
-                throw new Error(data.error ?? "Failed to execute code");
+                throw new Error(data.stderr ?? "Failed to execute code");
             }
 
             const parts: string[] = [];
@@ -203,7 +206,7 @@ export default function Room() {
                             }
                         </SelectValue>
                     </SelectTrigger>
-                    <SelectContent className="w-56">
+                    <SelectContent className="w-63">
                         {SUPPORTED_LANGUAGES.map((lang) => (
                             <SelectItem key={lang.value} value={lang.value}>
                                 {lang.label}
@@ -234,7 +237,7 @@ export default function Room() {
                             render={
                                 <Button
                                     variant="outline"
-                                    className="gap-2 w-36"
+                                    className="gap-2 w-33"
                                 >
                                     {copied ? (
                                         <CheckIcon className="h-4 w-4" />
@@ -280,14 +283,11 @@ export default function Room() {
                 {/* Editor */}
                 <div className="flex-1 overflow-hidden min-h-[40vh] md:min-h-0">
                     <RealtimeMonaco
-                        channel={roomId}
-                        name={name}
+                        connectOnMount={connectOnMount}
                         language={language}
-                        onLanguageChange={setLanguage}
-                        onUsersChange={setUsers}
-                        onChange={setCode}
                         height="100%"
                         theme="dark"
+                        onChange={setCode}
                     />
                 </div>
 

@@ -120,6 +120,8 @@ export default function Room() {
             }
             if (data.stdout) parts.push(data.stdout);
             if (data.stderr) parts.push(data.stderr);
+            if (data.time) parts.push(`[Execution time: ${data.time}s]`);
+            if (data.memory) parts.push(`[Memory used: ${data.memory}KB]`);
 
             setOutput(
                 parts.length > 0

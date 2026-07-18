@@ -1,3 +1,8 @@
+/*
+In production, this route is rate-limited to 10 requests per minute per IP address 
+through Vercel's Firewall rules.
+*/
+
 import { NextResponse } from "next/server";
 import type { ExecuteRequestBody } from "@models/execute_request_body";
 import type { ExecuteResponse } from "@models/execute_response";

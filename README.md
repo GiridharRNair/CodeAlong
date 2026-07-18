@@ -1,6 +1,6 @@
 ![code along](public/readme-header.png)
 
-Collaborative code editor. Create a room, share the link, and code together instantly. No sign-up required. Perfect for pair programming, technical interviews, and tutoring sessions.
+Create a room, share the link, and code together instantly. No sign-up required. Perfect for pair programming, technical interviews, and tutoring sessions.
 
 [https://codealong.live](https://codealong.live)
 

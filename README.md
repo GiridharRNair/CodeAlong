@@ -24,7 +24,7 @@ Code execution is proxied through a Next.js API route that calls the [Runlet](ht
 1. Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/<your-username>/codealong.git
+git clone https://github.com/GiridharRNair/CodeAlong.git
 cd codealong
 npm install
 ```

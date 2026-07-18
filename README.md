@@ -1,6 +1,6 @@
 ![code along](public/readme-header.png)
 
-Create a room, share the link, and code together instantly. No sign-up required. Perfect for pair programming, technical interviews, and tutoring sessions.
+Create a room, share the link, and code together instantly. No sign-up required. Perfect for pair programming, technical interviews, and tutoring sessions. Supports Python, JavaScript, C++, and Java.
 
 [https://codealong.live](https://codealong.live)
 

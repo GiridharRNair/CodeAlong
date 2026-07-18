@@ -47,6 +47,7 @@ import { toast } from "sonner";
 
 import type { ExecuteRequestBody } from "@models/execute_request_body";
 import type { ExecuteResponse } from "@models/execute_response";
+import type { ApiErrorResponse } from "@models/api_error_response";
 
 const config: Config = {
     dictionaries: [adjectives, animals],
@@ -108,11 +109,12 @@ export default function Room() {
                 body: JSON.stringify(requestBody),
             });
 
-            const data = (await response.json()) as ExecuteResponse;
-
             if (!response.ok) {
-                throw new Error(data.stderr ?? "Failed to execute code");
+                const errorData = (await response.json()) as ApiErrorResponse;
+                throw new Error(errorData.error || "Failed to execute code");
             }
+
+            const data = (await response.json()) as ExecuteResponse;
 
             const parts: string[] = [];
             if (data.status && data.status !== "OK") {

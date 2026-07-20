@@ -24,6 +24,11 @@ const RealtimeMonaco = ({
 }: RealtimeMonacoProps) => {
     return (
         <Editor
+            options={{
+                minimap: {
+                    enabled: false,
+                },
+            }}
             height={height}
             language={language}
             theme={theme === "dark" ? "vs-dark" : "light"}

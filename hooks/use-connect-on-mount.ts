@@ -103,7 +103,7 @@ export function useConnectOnMount({
                 lang;
             toast.info(`Language changed to ${language}`);
         }
-    }, []);
+    }, [languageState]);
 
     const fetchConnectedUsers = useCallback(() => {
         if (!providerAwarenessRef.current) return;

@@ -85,6 +85,11 @@ export function useConnectOnMount({
     const yMetaRef = useRef<Y.Map<string> | null>(null);
     const [users, setUsers] = useState<ConnectedUser[]>([]);
     const [languageState, setLanguageState] = useState<string>("python");
+    const languageStateRef = useRef(languageState);
+
+    useEffect(() => {
+        languageStateRef.current = languageState;
+    }, [languageState]);
 
     const broadcastLanguageChange = useCallback((lang: string) => {
         if (yMetaRef.current) {
@@ -96,14 +101,14 @@ export function useConnectOnMount({
         if (!yMetaRef.current) return;
 
         const lang = yMetaRef.current.get("language");
-        if (lang && lang !== languageState) {
+        if (lang && lang !== languageStateRef.current) {
             setLanguageState(lang);
             const language =
                 SUPPORTED_LANGUAGES.find((l) => l.value === lang)?.label ??
                 lang;
             toast.info(`Language changed to ${language}`);
         }
-    }, [languageState]);
+    }, []);
 
     const fetchConnectedUsers = useCallback(() => {
         if (!providerAwarenessRef.current) return;

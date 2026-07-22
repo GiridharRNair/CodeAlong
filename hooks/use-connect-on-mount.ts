@@ -96,7 +96,7 @@ export function useConnectOnMount({
         if (!yMetaRef.current) return;
 
         const lang = yMetaRef.current.get("language");
-        if (lang) {
+        if (lang && lang !== languageState) {
             setLanguageState(lang);
             const language =
                 SUPPORTED_LANGUAGES.find((l) => l.value === lang)?.label ??

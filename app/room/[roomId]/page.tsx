@@ -173,7 +173,7 @@ export default function Room() {
                                 {users.map((user) => (
                                     <div
                                         key={user.clientId}
-                                        className="flex items-center gap-2.5 px-3 py-2 border"
+                                        className="flex items-center gap-2.5 px-3 py-2"
                                     >
                                         <span
                                             className="h-6 w-6 rounded-full flex items-center justify-center text-xs font-medium text-white shrink-0"
